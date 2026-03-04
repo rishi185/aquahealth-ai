@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ================= ABOUT HERO ================= -->
+
+<section class="about-hero">
+    <div class="about-container">
+        <h1>About AquaHealth</h1>
+
+        <p class="about-text">
+            We're on a mission to revolutionize aquaculture through artificial intelligence.
+            Our platform empowers fish farmers and aquaculture professionals with real-time
+            disease detection, water quality monitoring, and predictive analytics.
+        </p>
+
+        <p class="about-text">
+            By combining deep learning models with IoT sensor technology,
+            we aim to reduce fish mortality rates, optimize farm operations,
+            and contribute to global food security.
+        </p>
+    </div>
+</section>
+
+<!-- ================= WHO IS THIS FOR ================= -->
+
+<section class="about-users">
+    <div class="about-container">
+        <h2>Who Is This For?</h2>
+
+        <div class="user-cards">
+
+            <div class="user-card">
+                <div class="user-icon">🐟</div>
+                <h3>Fish Farmers</h3>
+                <p>
+                    Small to large-scale fish farmers looking to reduce mortality
+                    and improve farm productivity.
+                </p>
+            </div>
+
+            <div class="user-card">
+                <div class="user-icon">🧪</div>
+                <h3>Aquaculture Professionals</h3>
+                <p>
+                    Industry experts seeking data-driven insights
+                    for smarter aquaculture management.
+                </p>
+            </div>
+
+            <div class="user-card">
+                <div class="user-icon">🌱</div>
+                <h3>Researchers</h3>
+                <p>
+                    Marine biologists and researchers studying
+                    fish diseases and environmental impact.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= PLANS & PRICING ================= -->
+
+<section class="pricing-section">
+    <div class="pricing-container">
+        <h2>Plans & Pricing</h2>
+        <p class="pricing-sub">Choose the plan that fits your needs.</p>
+
+        <div class="pricing-cards">
+
+            <!-- FREE PLAN -->
+            <div class="pricing-card">
+                <h3>Free</h3>
+                <div class="price">$0<span>/month</span></div>
+                <ul>
+                    <li>5 image uploads/day</li>
+                    <li>Disease detection</li>
+                    <li>Basic results</li>
+                    <li class="disabled">Water quality charts</li>
+                    <li class="disabled">Predictive analytics</li>
+                    <li class="disabled">Priority support</li>
+                </ul>
+                <button class="btn-pricing">Get Started</button>
+            </div>
+
+            <!-- PRO PLAN -->
+            <div class="pricing-card popular">
+                <div class="badge-popular">Popular</div>
+                <h3>Pro</h3>
+                <div class="price">$29<span>/month</span></div>
+                <ul>
+                    <li>100 image uploads/day</li>
+                    <li>Disease detection</li>
+                    <li>Advanced results</li>
+                    <li>Water quality charts</li>
+                    <li>Predictive analytics</li>
+                    <li>Priority support</li>
+                </ul>
+                <button onclick="showQR()" class="btn-pricing primary">
+                    Pay ₹29
+                </button>
+            </div>
+
+            <!-- ENTERPRISE PLAN -->
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">Custom</div>
+                <ul>
+                    <li>Unlimited uploads</li>
+                    <li>Full AI analytics</li>
+                    <li>Custom dashboards</li>
+                    <li>API access</li>
+                    <li>Dedicated support</li>
+                </ul>
+                <button class="btn-pricing">Contact Sales</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= UPI PAYMENT MODAL ================= -->
+
+<div id="upiModal" class="upi-modal">
+    <div class="upi-content">
+        <span class="close-btn" onclick="closeQR()">&times;</span>
+        <h3>Scan & Pay with UPI</h3>
+
+        <img src="{{ url_for('static', filename='images/upi-qr.png') }}" width="220">
+
+        <p><strong>Amount:</strong> ₹29</p>
+        <p>After completing payment, click below to activate Pro plan.</p>
+
+        <button onclick="paymentSuccess()" class="btn-pricing primary">
+            Confirm Purchase
+        </button>
+    </div>
+</div>
+
+<script>
+function showQR(){
+    document.getElementById("upiModal").style.display = "flex";
+}
+
+function closeQR(){
+    document.getElementById("upiModal").style.display = "none";
+}
+
+function paymentSuccess(){
+    alert("✅ Payment Successful! Pro Plan Activated.");
+    document.getElementById("upiModal").style.display = "none";
+}
+</script>
+
+{% endblock %}
