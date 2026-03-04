@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ================= TECHNOLOGY HERO ================= -->
+
+<section class="tech-hero">
+    <div class="tech-container">
+
+        <div class="tech-badge">⚙ Our Technology Stack</div>
+
+        <h1>Powered by Advanced AI</h1>
+
+        <p class="tech-sub">
+            Our platform combines deep learning, computer vision, IoT sensors,
+            and predictive analytics to deliver comprehensive fish health monitoring.
+        </p>
+
+    </div>
+</section>
+
+<!-- ================= TECHNOLOGY FEATURES ================= -->
+
+<section class="tech-features">
+    <div class="tech-container">
+
+        <div class="tech-grid">
+
+            <div class="tech-card">
+                <div class="tech-icon">🧠</div>
+                <h3>Deep Learning Models</h3>
+                <p>
+                    CNN models trained on thousands of fish disease images
+                    for accurate classification.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">📷</div>
+                <h3>Image Recognition</h3>
+                <p>
+                    Advanced computer vision analyzes fish photos
+                    to detect multiple disease symptoms.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">📡</div>
+                <h3>IoT Sensor Network</h3>
+                <p>
+                    Sensors monitor pH, temperature and dissolved oxygen
+                    in real-time.
+                </p>
+            </div>
+
+            <div class="tech-card">
+                <div class="tech-icon">📊</div>
+                <h3>Predictive Analytics</h3>
+                <p>
+                    Machine learning forecasts disease outbreaks
+                    using environmental data.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= WATER QUALITY DASHBOARD ================= -->
+
+<section class="water-section">
+    <div class="tech-container">
+
+        <h2 class="water-title">Water Quality Monitoring</h2>
+        <p class="water-sub">
+            Real-time parameter tracking with IoT sensors.
+        </p>
+
+        <div class="water-grid">
+
+            <div class="water-card">
+                <h4>pH Level</h4>
+                <canvas id="phChart"></canvas>
+            </div>
+
+            <div class="water-card">
+                <h4>Temperature</h4>
+                <canvas id="tempChart"></canvas>
+            </div>
+
+            <div class="water-card">
+                <h4>Dissolved Oxygen</h4>
+                <canvas id="oxygenChart"></canvas>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= CHART SCRIPT ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+window.onload = function() {
+
+const labels = ["0:00","4:00","8:00","12:00","16:00","20:00"];
+
+// pH Chart
+new Chart(document.getElementById("phChart"), {
+    type: "line",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: [7.1,7.4,7.6,7.3,7.0,7.2],
+            borderColor: "#2bb3c0",
+            backgroundColor: "rgba(43,179,192,0.2)",
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { min: 5, max: 9 }
+        }
+    }
+});
+
+// Temperature Chart
+new Chart(document.getElementById("tempChart"), {
+    type: "line",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: [24,26,27,28,26,24],
+            borderColor: "#ff7b54",
+            backgroundColor: "rgba(255,123,84,0.2)",
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { min: 20, max: 35 }
+        }
+    }
+});
+
+// Oxygen Chart
+new Chart(document.getElementById("oxygenChart"), {
+    type: "line",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: [8,7.5,7,6.2,6.5,7.2],
+            borderColor: "#4caf50",
+            backgroundColor: "rgba(76,175,80,0.2)",
+            fill: true,
+            tension: 0.4
+        }]
+    },
+    options: {
+        plugins: { legend: { display: false } },
+        scales: {
+            y: { min: 4, max: 10 }
+        }
+    }
+});
+
+};
+</script>
+
+{% endblock %}
