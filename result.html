@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<section class="result-wrapper">
+
+    <h1>Diagnosis Report</h1>
+
+    <div class="result-panel">
+
+        <img src="{{ image_path }}" class="fish-preview">
+
+        <div class="result-info">
+            <h2>{{ prediction }}</h2>
+            <p><strong>Confidence:</strong> {{ confidence }}%</p>
+            <p><strong>Risk Level:</strong> {{ risk_level }}</p>
+            <p><strong>Medicine:</strong> {{ medicine }}</p>
+            <p><strong>Temperature:</strong> {{ temperature }}</p>
+            <p><strong>Advice:</strong> {{ advice }}</p>
+        </div>
+
+    </div>
+
+    <a href="/" class="analyze-btn">Analyze Another Fish</a>
+
+</section>
+
+</body>
+</html>

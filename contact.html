@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- ================= CONTACT HERO ================= -->
+
+<section class="contact-hero">
+    <div class="contact-container">
+        <h1>Get In Touch</h1>
+        <p class="contact-sub">
+            Have questions or feedback? We'd love to hear from you.
+        </p>
+    </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact-section">
+    <div class="contact-container contact-grid">
+
+        <!-- ================= LEFT SIDE (FORM + DETAILS) ================= -->
+
+        <div class="contact-card">
+            <h3>📩 Send Us a Message</h3>
+
+            <form id="contactForm">
+                <div class="form-row">
+                    <input type="text" placeholder="Your name" required>
+                    <input type="email" placeholder="you@example.com" required>
+                </div>
+
+                <input type="text" placeholder="Subject">
+
+                <textarea rows="5" placeholder="Tell us more..."></textarea>
+
+                <button type="submit" class="btn-contact">
+                    Send Message
+                </button>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-box">
+                    ✔ Message Sent Successfully!
+                </div>
+            </form>
+
+            <!-- ================= CONTACT DETAILS ================= -->
+
+            <div class="contact-details">
+                <h4>📍 Contact Details</h4>
+
+                <div class="contact-item">
+                    📞 <a href="tel:+91 8106917143">+91 8106917143</a>
+                </div>
+
+                <div class="contact-item">
+                    📧 <a href="mailto:acquaculturemanagement@gmail">acquaculturemanagement@gmail</a>
+                </div>
+
+                <div class="contact-item">
+                    📘 <a href="https://www.facebook.com/abhilash.p.7587" target="_blank">Facebook</a>
+                </div>
+
+                <div class="contact-item">
+                    📷 <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= RIGHT SIDE (FAQ) ================= -->
+
+        <div class="contact-card">
+            <h3>❓ Frequently Asked Questions</h3>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    How accurate is the AI disease detection?
+                </button>
+                <div class="faq-answer">
+                    Our deep learning model achieves high accuracy across
+                    multiple fish diseases using thousands of training images.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    Do I need special equipment?
+                </button>
+                <div class="faq-answer">
+                    No special equipment is required for basic disease detection.
+                    IoT sensors are optional for water monitoring.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    Is my data secure?
+                </button>
+                <div class="faq-answer">
+                    Yes. We use secure cloud storage and encrypted data handling.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    What's include in special plan?
+                </button>
+                <div class="faq-answer">
+                    The free plan includes up to 5 image analyses per day, basic disease detection results, and access to our knowledge base.
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    What fish species are supported?
+                </button>
+                <div class="faq-answer">
+                    We currently support major aquaculture species including Aeromoniasis,bacteria red,bacteria gill,fungal saprolegniasis,Healthy fish,Parasitic,Viral White Tail disease. More species are being added regularly
+                </div>
+            </div>
+            <div class="faq-item">
+                <button type="button" class="faq-question">
+                    Do i need special eqipment for water monitoring?
+                </button>
+                <div class="faq-answer">
+                    For basic disease detection, you only need a smartphone camera. Water quality monitoring requires compatible IoT sensors which we can recommend.
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+// FAQ Toggle
+const faqButtons = document.querySelectorAll(".faq-question");
+
+faqButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.nextElementSibling.classList.toggle("show");
+    });
+});
+
+// Success Message
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const successBox = document.getElementById("successMessage");
+    successBox.classList.add("show");
+
+    setTimeout(() => {
+        successBox.classList.remove("show");
+    }, 3000);
+
+    this.reset();
+});
+
+</script>
+
+{% endblock %}
