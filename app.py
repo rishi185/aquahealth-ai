@@ -82,7 +82,7 @@ disease_info = {
 base_model = MobileNetV2(
     input_shape=(IMG_SIZE, IMG_SIZE, 3),
     include_top=False,
-    weights=None   # IMPORTANT
+    weights="imagenet"   # IMPORTANT
 )
 
 base_model.trainable = False
